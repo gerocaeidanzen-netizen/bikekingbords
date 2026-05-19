@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Best Selling Bikes in Dubai | Bike King Borders</title>
+  <meta name="description" content="Shop Bike King Borders best selling mountain bikes, road bikes, kids bikes, servicing, and bike hire in Dubai.">
+  <link rel="canonical" href="bestsellers.html">
+  <link rel="preload" as="image" href="leogang-downhill-4k-mountain-bike-track-luel5gej0olnx6ik.jpg" fetchpriority="high">
+
+  <meta property="og:title" content="Best Selling Bikes | Bike King Borders">
+  <meta property="og:description" content="Affordable best selling bikes, mountain bikes, servicing, and bike hire from Bike King Borders.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="bestseller-vaux-x-mount.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <style>
+
+    /* RESET */
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    /* BODY */
+    body{
+      color:#fff;
+      background:#050505;
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.85));
+      z-index:-1;
+      pointer-events:none;
+    }
+
+    .page-bg{
+      position:fixed;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      z-index:-2;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    .nav-wrapper{
+      position:relative;
+      z-index:1000;
+    }
+
+    #menu-toggle{
+      display:none;
+    }
+
+    /* NAVBAR */
+    .main-nav{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      height:70px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 20px;
+      background:rgba(0,0,0,0.92);
+      backdrop-filter:blur(10px);
+      z-index:1001;
+    }
+
+    /* LOGO */
+    .logo{
+      font-weight:bold;
+      font-size:1.4rem;
+      color:white;
+      letter-spacing:1px;
+      font-family:Monaco, monospace;
+      text-shadow:0 2px 10px rgba(0,0,0,0.8);
+      cursor:pointer;
+    }
+
+    /* DESKTOP MENU */
+    .desktop-menu{
+      display:flex;
+      list-style:none;
+      gap:12px;
+      align-items:center;
+    }
+
+    .main-nav a{
+      text-decoration:none;
+      color:white;
+      padding:10px 22px;
+      border:2px solid white;
+      border-radius:25px;
+      font-weight:bold;
+      white-space:nowrap;
+      transition:all 0.3s ease;
+      font-size:0.9rem;
+    }
+
+    .main-nav a:hover{
+      background:white;
+      color:black;
+      transform:translateY(-2px);
+    }
+
+    /* HAMBURGER */
+    .hamburger{
+      display:none;
+      flex-direction:column;
+      cursor:pointer;
+      padding:5px;
+      gap:4px;
+    }
+
+    .hamburger span{
+      width:25px;
+      height:3px;
+      background:white;
+      transition:0.3s;
+      border-radius:2px;
+    }
+
+    /* HAMBURGER ANIMATION */
+    #menu-toggle:checked ~ .main-nav .hamburger span:nth-child(1){
+      transform:rotate(45deg) translate(5px,5px);
+    }
+
+    #menu-toggle:checked ~ .main-nav .hamburger span:nth-child(2){
+      opacity:0;
+    }
+
+    #menu-toggle:checked ~ .main-nav .hamburger span:nth-child(3){
+      transform:rotate(-45deg) translate(7px,-6px);
+    }
+
+    /* MOBILE MENU */
+    .mobile-menu{
+      position:fixed;
+      top:70px;
+      left:0;
+      right:0;
+      background:rgba(0,0,0,0.98);
+      backdrop-filter:blur(10px);
+      max-height:0;
+      overflow:hidden;
+      transition:all 0.4s ease;
+      padding:0 20px;
+      z-index:1000;
+    }
+
+    #menu-toggle:checked ~ .mobile-menu{
+      max-height:500px;
+      padding:20px;
+    }
+
+    .mobile-menu ul{
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .mobile-menu li{
+      background:rgba(255,255,255,0.05);
+      border-radius:10px;
+      overflow:hidden;
+    }
+
+    .mobile-menu a{
+      display:block;
+      color:white;
+      text-decoration:none;
+      padding:18px;
+      text-align:center;
+      font-weight:bold;
+      font-size:1rem;
+      transition:0.3s;
+      border:none;
+    }
+
+    .mobile-menu a:hover{
+      background:rgba(255,255,255,0.15);
+      transform:translateX(5px);
+    }
+
+    /* =========================
+       MARQUEE
+    ========================= */
+
+    .marquee{
+      position:fixed;
+      top:70px;
+      left:0;
+      right:0;
+      background:rgba(0,0,0,0.9);
+      color:white;
+      padding:10px 0;
+      font-weight:bold;
+      font-size:0.9rem;
+      z-index:999;
+      overflow:hidden;
+      white-space:nowrap;
+      border-bottom:1px solid rgba(255,255,255,0.1);
+    }
+
+    .marquee-content{
+      display:inline-block;
+      animation:marquee 18s linear infinite;
+      padding-left:100%;
+    }
+
+    @keyframes marquee{
+      0%{transform:translateX(0);}
+      100%{transform:translateX(-100%);}
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero{
+      min-height:70vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:160px 20px 80px;
+    }
+
+    .hero-text h1{
+      font-size:clamp(2.5rem, 7vw, 4rem);
+      margin-bottom:15px;
+      text-shadow:0 4px 15px rgba(0,0,0,0.8);
+      font-family:Monaco, monospace;
+    }
+
+    .hero-text p{
+      font-size:clamp(1rem, 3vw, 1.5rem);
+      letter-spacing:2px;
+      color:#f1f1f1;
+      text-shadow:0 2px 10px rgba(0,0,0,0.8);
+    }
+
+    /* =========================
+       CONTENT
+    ========================= */
+
+    .content{
+      padding:60px 8%;
+      background:rgba(0,0,0,0.92);
+      backdrop-filter:blur(5px);
+    }
+
+    /* GRID */
+    .bikes-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+      gap:35px;
+      max-width:1400px;
+      margin:0 auto;
+    }
+
+    /* BIKE CARD */
+    .bike-card{
+      background:#111111;
+      border-radius:20px;
+      padding:25px;
+      box-shadow:0 8px 25px rgba(0,0,0,0.7);
+      transition:0.4s;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .bike-card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 15px 40px rgba(255,255,255,0.12);
+    }
+
+    .bike-card img{
+      width:100%;
+      height:220px;
+      aspect-ratio:16/9;
+      object-fit:cover;
+      border-radius:12px;
+      margin-bottom:18px;
+    }
+
+    .bike-card h2{
+      font-size:1.3rem;
+      margin-bottom:12px;
+      color:white;
+    }
+
+    .bike-card p{
+      font-size:0.95rem;
+      color:#ddd;
+      margin-bottom:15px;
+      line-height:1.5;
+    }
+
+    .price{
+      display:block;
+      font-weight:bold;
+      font-size:1.5rem;
+      color:#ffd54f;
+      margin-bottom:18px;
+    }
+
+    .bike-card button{
+      border:none;
+      padding:12px 24px;
+      border-radius:25px;
+      background:linear-gradient(45deg,#ffd54f,#ffca28);
+      color:black;
+      font-weight:bold;
+      cursor:pointer;
+      font-size:1rem;
+      width:100%;
+      transition:0.3s;
+    }
+
+    .bike-card button:hover{
+      transform:translateY(-2px);
+      box-shadow:0 8px 20px rgba(255,193,7,0.4);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    /* MOBILE */
+    @media(max-width:768px){
+
+      .desktop-menu{
+        display:none;
+      }
+
+      .hamburger{
+        display:flex;
+      }
+
+      .main-nav{
+        height:65px;
+        padding:0 15px;
+      }
+
+      .logo{
+        font-size:1.2rem;
+      }
+
+      .mobile-menu{
+        top:65px;
+      }
+
+      .marquee{
+        top:65px;
+        font-size:0.8rem;
+      }
+
+      .hero{
+        padding-top:170px;
+      }
+
+      .content{
+        padding:45px 5%;
+      }
+
+      .bikes-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    /* TABLET */
+    @media(min-width:769px) and (max-width:1024px){
+
+      .desktop-menu{
+        gap:8px;
+      }
+
+      .main-nav a{
+        padding:8px 16px;
+        font-size:0.85rem;
+      }
+    }
+
+    /* DESKTOP */
+    @media(min-width:769px){
+
+      .mobile-menu,
+      .hamburger{
+        display:none;
+      }
+    }
+
+    /* LARGE DESKTOP */
+    @media(min-width:1300px){
+
+      .bikes-grid{
+        grid-template-columns:repeat(3,1fr);
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce){
+
+      .marquee-content{
+        animation:none;
+        padding-left:20px;
+      }
+
+      .main-nav a,
+      .hamburger span,
+      .mobile-menu,
+      .mobile-menu a,
+      .bike-card,
+      .bike-card button{
+        transition:none;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <img
+    class="page-bg"
+    src="leogang-downhill-4k-mountain-bike-track-luel5gej0olnx6ik.jpg"
+    width="1920"
+    height="1280"
+    alt=""
+    fetchpriority="high"
+    decoding="async"
+    aria-hidden="true"
+  >
+
+  <!-- NAVIGATION -->
+  <div class="nav-wrapper">
+
+    <input type="checkbox" id="menu-toggle">
+
+    <!-- NAVBAR -->
+    <nav class="main-nav">
+
+      <label for="menu-toggle" class="logo">
+        🚴 Bike King Borders
+      </label>
+
+      <!-- DESKTOP MENU -->
+      <ul class="desktop-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="bestsellers.html">Best Sellers</a></li>
+        <li><a href="mountainbikes.html">Mountain Bikes</a></li>
+        <li><a href="kidsbike.html">Kids Bikes</a></li>
+        <li><a href="bikesforhire.html">Bikes for Hire</a></li>
+        <li><a href="servicing.html">Servicing</a></li>
+        <li><a href="biketrails.html">Trails</a></li>
+      </ul>
+
+      <!-- HAMBURGER -->
+      <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="bestsellers.html">Best Sellers</a></li>
+        <li><a href="mountainbikes.html">Mountain Bikes</a></li>
+        <li><a href="kidsbike.html">Kids Bikes</a></li>
+        <li><a href="bikesforhire.html">Bikes for Hire</a></li>
+        <li><a href="servicing.html">Servicing</a></li>
+        <li><a href="biketrails.html">Trails</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee-content">
+      🔥 SPECIAL OFFERS: 20% OFF MOUNTAIN BIKES • FREE KIDS BIKE SERVICE • 50% OFF HELMETS • HIRE FROM AED 50 •
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-text">
+      <h1>Best Sellers – Mountain Bikes</h1>
+      <p>Affordable • High Quality • Great Service</p>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <div class="bikes-grid">
+
+      <article class="bike-card">
+        <img src="bestseller-vaux-x-mount.png" width="640" height="640" alt="Vaux X-Mount Gear Cycle mountain bike" loading="lazy" decoding="async">
+        <h2>Vaux X-Mount Gear Cycle</h2>
+        <p>Aluminium Alloy Frame & Disc Brakes with 21 Shimano gears.</p>
+        <span class="price">AED 3,499</span>
+        <button type="button" aria-label="View details for Vaux X-Mount Gear Cycle">View Details</button>
+      </article>
+
+      <article class="bike-card">
+        <img src="bestseller-zyklus-turbo-36.png" width="640" height="640" alt="Zyklus Turbo 36 mountain bike" loading="lazy" decoding="async">
+        <h2>Zyklus Turbo 36</h2>
+        <p>Strong and durable mountain bike designed for all terrains.</p>
+        <span class="price">AED 4,250</span>
+        <button type="button" aria-label="View details for Zyklus Turbo 36">View Details</button>
+      </article>
+
+      <article class="bike-card">
+        <img src="bestseller-coluer-radar-al-32.png" width="640" height="640" alt="Coluer Radar AL 3.2 road bike" loading="lazy" decoding="async">
+        <h2>Coluer Radar AL 3.2</h2>
+        <p>Reliable road bike great for beginners and weekend riders.</p>
+        <span class="price">AED 2,899</span>
+        <button type="button" aria-label="View details for Coluer Radar AL 3.2">View Details</button>
+      </article>
+
+      <article class="bike-card">
+        <img src="bestseller-coluer-invicta-disc-54.png" width="640" height="640" alt="Coluer Invicta Disc 5.4 endurance bike" loading="lazy" decoding="async">
+        <h2>Coluer Invicta Disc 5.4</h2>
+        <p>Endurance frame with carbon fork for precision control.</p>
+        <span class="price">AED 6,750</span>
+        <button type="button" aria-label="View details for Coluer Invicta Disc 5.4">View Details</button>
+      </article>
+
+    </div>
+
+  </main>
+
+</body>
+</html>

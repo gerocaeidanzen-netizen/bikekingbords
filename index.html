@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>King Bike Shop</title>
+  <link rel="preload" as="image" href="leogang-downhill-4k-mountain-bike-track-luel5gej0olnx6ik.jpg" fetchpriority="high">
+
+  <!-- SEO -->
+  <meta name="description" content="Bike King Borders – Affordable, high-quality bikes, servicing, rentals, and the best mountain bikes in Dubai.">
+  <link rel="canonical" href="index.html">
+
+  <!-- Social Sharing (Open Graph) -->
+  <meta property="og:title" content="Bike King Borders">
+  <meta property="og:description" content="Affordable • High Quality • Great Service">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="leogang-downhill-4k-mountain-bike-track-luel5gej0olnx6ik.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #050505;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.95));
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .hero-bg {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: -2;
+    }
+
+    .nav-wrapper {
+      position: relative;
+      z-index: 1000;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo-nav {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      font-family: Monaco, monospace;
+    }
+
+    #menu-toggle {
+      display: none;
+    }
+
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 5px;
+      gap: 4px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: white;
+      transition: 0.3s;
+      border-radius: 2px;
+    }
+
+    #menu-toggle:checked ~ nav .hamburger span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    #menu-toggle:checked ~ nav .hamburger span:nth-child(2) {
+      opacity: 0;
+    }
+
+    #menu-toggle:checked ~ nav .hamburger span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.98);
+      backdrop-filter: blur(10px);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out, padding 0.3s ease;
+      padding: 0 20px;
+      z-index: 999;
+    }
+
+    #menu-toggle:checked ~ .mobile-menu {
+      max-height: 500px;
+      padding: 20px 20px;
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .mobile-menu li {
+      background: rgba(255,255,255,0.05);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+
+    .mobile-menu a {
+      color: white;
+      text-decoration: none;
+      padding: 20px;
+      display: block;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: all 0.4s ease;
+    }
+
+    .mobile-menu a:hover {
+      background: rgba(255,255,255,0.15);
+      transform: translateX(5px);
+    }
+
+    .desktop-menu {
+      display: flex;
+      gap: 10px;
+      list-style: none;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      padding: 10px 20px;
+      border: 2px solid white;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      background: rgb(255, 255, 255);
+      color: black;
+    }
+
+    .marquee {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.9);
+      color: white;
+      padding: 10px 0;
+      font-weight: bold;
+      font-size: 0.9rem;
+      z-index: 998;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee-content {
+      display: inline-block;
+      animation: marquee 20s linear infinite;
+      padding-left: 100%;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 130px 20px 40px;
+    }
+
+    .logo {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-family: Monaco, monospace;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    }
+
+    .tagline {
+      font-size: clamp(1.2rem, 4vw, 2rem);
+      font-family: Monaco, monospace;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+      max-width: 600px;
+    }
+
+    @media (max-width: 768px) {
+      .desktop-menu {
+        display: none;
+      }
+      
+      .hamburger {
+        display: flex;
+      }
+
+      .logo-nav {
+        z-index: 1002;
+        position: relative;
+      }
+
+      .hero {
+        padding-top: 140px;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .hamburger,
+      .mobile-menu {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        height: 65px;
+        padding: 0 15px;
+      }
+
+      .logo-nav {
+        font-size: 1.3rem;
+      }
+
+      .marquee {
+        top: 65px;
+      }
+
+      .mobile-menu {
+        top: 65px;
+      }
+
+      .hero {
+        padding-top: 125px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-content {
+        animation: none;
+        padding-left: 20px;
+      }
+
+      .hamburger span,
+      .mobile-menu,
+      .mobile-menu a,
+      nav a {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <img
+    class="hero-bg"
+    src="leogang-downhill-4k-mountain-bike-track-luel5gej0olnx6ik.jpg"
+    width="1920"
+    height="1280"
+    alt=""
+    fetchpriority="high"
+    decoding="async"
+    aria-hidden="true"
+  >
+
+  <div class="nav-wrapper">
+    <input type="checkbox" id="menu-toggle">
+    
+    <nav>
+      <label for="menu-toggle" class="logo-nav">🚴 Bike King Borders</label>
+      
+      <ul class="desktop-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="bestsellers.html">Best Sellers</a></li>
+        <li><a href="mountainbikes.html">Mountain Bikes</a></li>
+        <li><a href="kidsbike.html">Kids Bikes</a></li>
+        <li><a href="bikesforhire.html">Bikes for Hire</a></li>
+        <li><a href="servicing.html">Servicing</a></li>
+        <li><a href="biketrails.html">Trails</a></li>
+      </ul>
+      
+      <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </nav>
+    
+    <div class="mobile-menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="bestsellers.html">Best Sellers</a></li>
+        <li><a href="mountainbikes.html">Mountain Bikes</a></li>
+        <li><a href="kidsbike.html">Kids Bikes</a></li>
+        <li><a href="bikesforhire.html">Bikes for Hire</a></li>
+        <li><a href="servicing.html">Servicing</a></li>
+        <li><a href="biketrails.html">Trails</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="marquee">
+    <div class="marquee-content">
+      SPECIAL OFFERS: 20% OFF MOUNTAIN BIKES • FREE KIDS BIKE SERVICE • 50% OFF HELMETS • HIRE FROM DHS10   •  
+    </div>
+  </div>
+
+  <section class="hero">
+    <h1 class="logo">Bike King Borders</h1>
+    <p class="tagline">Affordable • High Quality • Great Service</p>
+  </section>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bike Hire in Dubai | Bike King Borders</title>
+    <meta name="description" content="Hire bikes in Dubai from Bike King Borders, including city bikes, mountain bikes, electric bikes, kids bikes, road bikes, hybrid bikes, and premium MTB rentals." />
+    <link rel="canonical" href="bikesforhire.html" />
+    <meta property="og:title" content="Bike Hire in Dubai | Bike King Borders" />
+    <meta property="og:description" content="Affordable hourly bike rentals for city rides, trails, kids, roads, and electric bikes." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="BCO.ef63ea1f-1f91-4c33-8e87-15b89e6082f6.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/x-icon" href="BCO.13d029be-b829-480c-96d5-6b4bc503b602.png" />
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:#111;
+            color:white;
+        }
+
+        /* NAV WRAPPER */
+        .nav-wrapper{
+            position:relative;
+            z-index:1000;
+        }
+
+        #menu-toggle{
+            display:none;
+        }
+
+        /* NAVBAR */
+        nav{
+            position:fixed;
+            top:0;
+            left:0;
+            right:0;
+            height:70px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:0 20px;
+            background:rgba(0,0,0,0.9);
+            backdrop-filter:blur(10px);
+            z-index:1000;
+        }
+
+        .logo-nav{
+            font-weight:bold;
+            font-size:1.3rem;
+            font-family:Monaco, monospace;
+        }
+
+        /* DESKTOP MENU */
+        .desktop-menu{
+            display:flex;
+            gap:10px;
+            list-style:none;
+        }
+
+        .desktop-menu a{
+            text-decoration:none;
+            color:white;
+            padding:10px 20px;
+            border:2px solid white;
+            border-radius:25px;
+            font-weight:bold;
+            transition:0.3s;
+        }
+
+        .desktop-menu a:hover{
+            background:white;
+            color:black;
+        }
+
+        /* HAMBURGER */
+        .hamburger{
+            display:none;
+            flex-direction:column;
+            cursor:pointer;
+            padding:5px;
+            gap:4px;
+        }
+
+        .hamburger span{
+            width:25px;
+            height:3px;
+            background:white;
+            transition:0.3s;
+            border-radius:2px;
+        }
+
+        /* HAMBURGER ANIMATION */
+        #menu-toggle:checked ~ nav .hamburger span:nth-child(1){
+            transform:rotate(45deg) translate(5px,5px);
+        }
+
+        #menu-toggle:checked ~ nav .hamburger span:nth-child(2){
+            opacity:0;
+        }
+
+        #menu-toggle:checked ~ nav .hamburger span:nth-child(3){
+            transform:rotate(-45deg) translate(7px,-6px);
+        }
+
+        /* MOBILE MENU */
+        .mobile-menu{
+            position:fixed;
+            top:70px;
+            left:0;
+            right:0;
+            background:rgba(0,0,0,0.98);
+            backdrop-filter:blur(10px);
+            max-height:0;
+            overflow:hidden;
+            transition:0.4s ease;
+            padding:0 20px;
+            z-index:999;
+        }
+
+        #menu-toggle:checked ~ .mobile-menu{
+            max-height:500px;
+            padding:20px;
+        }
+
+        .mobile-menu ul{
+            list-style:none;
+            display:flex;
+            flex-direction:column;
+            gap:1px;
+        }
+
+        .mobile-menu li{
+            background:rgba(255,255,255,0.05);
+            border-radius:8px;
+            margin-bottom:8px;
+        }
+
+        .mobile-menu a{
+            color:white;
+            text-decoration:none;
+            padding:20px;
+            display:block;
+            text-align:center;
+            font-weight:bold;
+            font-size:1.1rem;
+            transition:0.4s;
+        }
+
+        .mobile-menu a:hover{
+            background:rgba(255,255,255,0.15);
+            transform:translateX(5px);
+        }
+
+        /* MARQUEE */
+        .marquee{
+            position:fixed;
+            top:70px;
+            width:100%;
+            background:black;
+            padding:8px;
+            overflow:hidden;
+            white-space:nowrap;
+            font-weight:bold;
+            z-index:998;
+        }
+
+        .marquee-content{
+            display:inline-block;
+            padding-left:100%;
+            animation:move 18s linear infinite;
+        }
+
+        @keyframes move{
+            0%{transform:translateX(0);}
+            100%{transform:translateX(-100%);}
+        }
+
+        /* HERO */
+        .hero{
+            margin-top:120px;
+            text-align:center;
+            padding:40px;
+        }
+
+        .logo{
+            font-size:3rem;
+            font-family:Monaco, monospace;
+        }
+
+        /* CONTENT */
+        .content{
+            background:#0f0f0f;
+            padding:50px 8%;
+        }
+
+        .bikes-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+            gap:25px;
+        }
+
+        .bike-card{
+            background:#1c1c1c;
+            padding:20px;
+            border-radius:18px;
+            border:1px solid rgba(255,255,255,0.1);
+            transition:0.3s;
+        }
+
+        .bike-card:hover{
+            transform:translateY(-8px);
+        }
+
+        .bike-card img{
+            width:100%;
+            height:200px;
+            object-fit:cover;
+            border-radius:10px;
+            margin:10px 0;
+        }
+
+        .price{
+            color:#ffd54f;
+            font-weight:bold;
+            display:block;
+            margin:10px 0;
+        }
+
+        button{
+            width:100%;
+            padding:10px;
+            border:none;
+            background:#ffd54f;
+            font-weight:bold;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#ffca28;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:768px){
+            .desktop-menu{
+                display:none;
+            }
+            .hamburger{
+                display:flex;
+            }
+        }
+
+        @media(min-width:769px){
+            .mobile-menu,
+            .hamburger{
+                display:none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="nav-wrapper">
+
+    <input type="checkbox" id="menu-toggle" />
+
+    <nav>
+        <div class="logo-nav">Bike King Borders</div>
+
+        <ul class="desktop-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="bestsellers.html">Best Sellers</a></li>
+            <li><a href="mountainbikes.html">Mountain Bikes</a></li>
+            <li><a href="kidsbike.html">Kids Bikes</a></li>
+            <li><a href="bikesforhire.html">Bikes for Hire</a></li>
+            <li><a href="servicing.html">Servicing</a></li>
+            <li><a href="biketrails.html">Trails</a></li>
+        </ul>
+
+        <label for="menu-toggle" class="hamburger">
+            <span></span><span></span><span></span>
+        </label>
+    </nav>
+
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="bestsellers.html">Best Sellers</a></li>
+            <li><a href="mountainbikes.html">Mountain Bikes</a></li>
+            <li><a href="kidsbike.html">Kids Bikes</a></li>
+            <li><a href="bikesforhire.html">Bikes for Hire</a></li>
+            <li><a href="servicing.html">Servicing</a></li>
+            <li><a href="biketrails.html">Trails</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<div class="marquee">
+    <div class="marquee-content">
+        🔥 Bike Hire Deals • City • Mountain • E-Bikes • Kids Bikes • Cheap Rentals •
+    </div>
+</div>
+
+<section class="hero">
+    <h1 class="logo">Bikes for Hire</h1>
+</section>
+
+<main class="content">
+    <div class="bikes-grid">
+
+        <article class="bike-card">
+            <h2>City Cruiser Bike</h2>
+            <img src="BCO.ef63ea1f-1f91-4c33-8e87-15b89e6082f6.png" width="1024" height="1024" alt="City cruiser bike for hourly hire" loading="lazy" decoding="async" />
+            <p>Comfortable bike perfect for city rides.</p>
+            <span class="price">AED 25 / hour</span>
+            <button type="button" aria-label="Rent City Cruiser Bike">Rent Now</button>
+        </article>
+
+        <article class="bike-card">
+            <h2>Mountain Trail Bike</h2>
+            <img src="BCO.0116f3a2-f958-407d-9e36-667a0231aeb0.png" width="1024" height="1024" alt="Mountain trail bike for off-road rental" loading="lazy" decoding="async" />
+            <p>Strong bike for off-road trails.</p>
+            <span class="price">AED 40 / hour</span>
+            <button type="button" aria-label="Rent Mountain Trail Bike">Rent Now</button>
+        </article>
+
+        <article class="bike-card">
+            <h2>Electric Bike</h2>
+            <img src="BCO.03e1a099-ac89-4f3b-a28f-a49204bde751.png" width="1024" height="1024" alt="Electric bike with pedal assist for hire" loading="lazy" decoding="async" />
+            <p>Easy riding with electric boost.</p>
+            <span class="price">AED 60 / hour</span>
+            <button type="button" aria-label="Rent Electric Bike">Rent Now</button>
+        </article>
+
+        <article class="bike-card">
+            <h2>Kids Rental Bike</h2>
+            <img src="BCO.99ef6eb3-1f13-43d2-af26-f3a94af8b7bf.png" width="1024" height="1024" alt="Kids rental bike for safe family rides" loading="lazy" decoding="async" />
+            <p>Safe bike for kids.</p>
+            <span class="price">AED 20 / hour</span>
+            <button type="button" aria-label="Rent Kids Rental Bike">Rent Now</button>
+        </article>
+
+        <article class="bike-card">
+            <h2>Road Bike</h2>
+            <img src="BCO.d52e7bd6-8280-4a54-a99a-b0dcd08f46ed.png" width="1024" height="1024" alt="Lightweight road bike for hourly rental" loading="lazy" decoding="async" />
+            <p>Fast lightweight road bike.</p>
+            <span class="price">AED 50 / hour</span>
+            <button type="button" aria-label="Rent Road Bike">Rent Now</button>
+        </article>
+
+        <article class="bike-card">
+            <h2>Hybrid Bike</h2>
+            <img src="BCO.99ec544a-0e65-4aa4-a60f-42d8e54b39e3.png" width="1024" height="1024" alt="Hybrid bike for road and trail hire" loading="lazy" decoding="async" />
+            <p>Road + mountain combination bike.</p>
+            <span class="price">AED 35 / hour</span>
+            <button type="button" aria-label="Rent Hybrid Bike">Rent Now</button>
+        </article>
+
+        <article class="bike-card">
+            <h2>Fat Tire Bike</h2>
+            <img src="BCO.cdd9d7ac-98ea-44a5-9cd4-0c86e82585a2.png" width="1024" height="1024" alt="Fat tire bike for sand and rough terrain rental" loading="lazy" decoding="async" />
+            <p>Perfect for sand and rough terrain.</p>
+            <span class="price">AED 45 / hour</span>
+            <button type="button" aria-label="Rent Fat Tire Bike">Rent Now</button>
+        </article>
+
+        <article class="bike-card">
+            <h2>Premium MTB</h2>
+            <img src="BCO.b6133a9f-ef61-4238-bab1-e9dbb828c2a0.png" width="1024" height="1024" alt="Premium high-performance mountain bike rental" loading="lazy" decoding="async" />
+            <p>High-performance mountain bike.</p>
+            <span class="price">AED 70 / hour</span>
+            <button type="button" aria-label="Rent Premium MTB">Rent Now</button>
+        </article>
+
+    </div>
+</main>
+
+</body>
+</html>
